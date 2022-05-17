@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    internal class MainMenu
+    public class MainMenu
     {
         private readonly List<MenuItem> r_MenuItems;
 

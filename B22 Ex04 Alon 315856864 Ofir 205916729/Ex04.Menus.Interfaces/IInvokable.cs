@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    internal interface IAction
+    public interface IInvokable
     {
         void Invoke();
     }

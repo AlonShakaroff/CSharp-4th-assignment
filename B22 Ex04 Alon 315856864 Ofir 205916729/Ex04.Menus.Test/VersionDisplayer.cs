@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Ex04.Menus.Interfaces
+namespace Ex04.Menus.Test
 {
-    public class MenuItem
+    internal class VersionDisplayer
     {
-        private readonly string r_ItemLabel;
-
     }
 }
