@@ -32,8 +32,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Ex04.Menus.Test.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="DateDisplayer.cs" />
+    <Compile Include="DelegateMainMenuExhibit.cs" />
+    <Compile Include="InterfaceMainMenuExhibit.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="StringInputSpacesCounter.cs" />
     <Compile Include="TimeDisplayer.cs" />
     <Compile Include="VersionDisplayer.cs" />

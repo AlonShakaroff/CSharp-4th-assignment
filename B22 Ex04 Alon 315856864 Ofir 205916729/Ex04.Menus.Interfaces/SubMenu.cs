@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace Ex04.Menus.Interfaces
 {
-    public class MainMenu
+    public class SubMenu : MenuItem
     {
-        private const string k_MainMenuTitle = "Interface main menu";
         private readonly MenuHandler r_MenuHandler;
 
-        public MainMenu()
+        public SubMenu(string i_ItemLabel)
+            : base(i_ItemLabel)
         {
-            r_MenuHandler = new MenuHandler(k_MainMenuTitle, true);
+            r_MenuHandler = new MenuHandler(ItemLabel, false);
         }
 
         public void AddMenuItem(MenuItem i_MenuItem)
@@ -18,7 +20,7 @@ namespace Ex04.Menus.Interfaces
             r_MenuHandler.AddMenuItem(i_MenuItem);
         }
 
-        public void Show()
+        public override void ChooseItem()
         {
             r_MenuHandler.ShowMenu();
         }
