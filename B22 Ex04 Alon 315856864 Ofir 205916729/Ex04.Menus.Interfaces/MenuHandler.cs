@@ -45,14 +45,14 @@ namespace Ex04.Menus.Interfaces
             int itemIndex = 1;
             StringBuilder printedMenu = new StringBuilder();
 
-            printedMenu.AppendFormat("{0}\n\n", r_Title);
+            printedMenu.AppendFormat("{0}{1}{1}", r_Title, Environment.NewLine);
             foreach (MenuItem menuItem in r_MenuItemsList)
             {
-                printedMenu.AppendFormat("{0}. {1}\n", itemIndex, menuItem.ItemLabel);
+                printedMenu.AppendFormat("{0}. {1}{2}", itemIndex, menuItem.ItemLabel, Environment.NewLine);
                 itemIndex++;
             }
 
-            if(r_IsMainMenuFlag == true)
+            if (r_IsMainMenuFlag)
             {
                 printedMenu.AppendLine("0. Exit");
             }

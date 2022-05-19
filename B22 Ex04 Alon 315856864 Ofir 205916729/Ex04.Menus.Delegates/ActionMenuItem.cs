@@ -25,10 +25,7 @@ namespace Ex04.Menus.Delegates
 
         protected virtual void OnItemChosen()
         {
-            if(ItemChosen != null)
-            {
-                ItemChosen.Invoke();
-            }
+            ItemChosen?.Invoke();
         }
     }
 }
