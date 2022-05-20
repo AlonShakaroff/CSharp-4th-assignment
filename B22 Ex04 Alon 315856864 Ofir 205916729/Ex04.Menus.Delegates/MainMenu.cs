@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Ex04.Menus.Delegates
+﻿namespace Ex04.Menus.Delegates
 {
     public class MainMenu
     {
-        private const string k_MainMenuTitle = "Delegates main menu";
+        private const string k_MainMenuTitle = "Delegates Main Menu";
         private readonly MenuHandler r_MenuHandler;
 
         public MainMenu()

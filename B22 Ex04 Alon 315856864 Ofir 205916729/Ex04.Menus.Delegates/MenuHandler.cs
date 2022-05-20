@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Ex04.Menus.Delegates
@@ -9,13 +8,13 @@ namespace Ex04.Menus.Delegates
     {
         private readonly List<MenuItem> r_MenuItemsList;
         private readonly string r_Title;
-        private readonly bool r_IsMainMenuFlag;
+        private readonly bool r_IsMainMenu;
 
         public MenuHandler(string i_Title, bool i_IsMainMenu)
         {
             r_MenuItemsList = new List<MenuItem>();
             r_Title = i_Title;
-            r_IsMainMenuFlag = i_IsMainMenu;
+            r_IsMainMenu = i_IsMainMenu;
         }
 
         public void AddMenuItem(MenuItem i_MenuItem)
@@ -45,14 +44,15 @@ namespace Ex04.Menus.Delegates
             int itemIndex = 1;
             StringBuilder printedMenu = new StringBuilder();
 
-            printedMenu.AppendFormat("{0}{1}{1}", r_Title, Environment.NewLine);
+            printedMenu.AppendFormat("**{0}**{1}", r_Title, Environment.NewLine);
+            printedMenu.AppendFormat("-------------------{0}", Environment.NewLine);
             foreach (MenuItem menuItem in r_MenuItemsList)
             {
                 printedMenu.AppendFormat("{0}. {1}{2}", itemIndex, menuItem.ItemLabel, Environment.NewLine);
                 itemIndex++;
             }
 
-            if (r_IsMainMenuFlag)
+            if (r_IsMainMenu)
             {
                 printedMenu.AppendLine("0. Exit");
             }
@@ -60,20 +60,31 @@ namespace Ex04.Menus.Delegates
             {
                 printedMenu.AppendLine("0. Back");
             }
+            printedMenu.AppendFormat("-------------------{0}", Environment.NewLine);
 
             Console.Write(printedMenu.ToString());
         }
 
         private int getChoiceFromUser()
         {
-            int choice;
+            string usersChoiceAsString;
+            bool validChoice;
+            int usersChoiceAsInteger;
 
-            while (int.TryParse(Console.ReadLine(), out choice) == false)
+            Console.Write("Your choice: ");
+            do
             {
-                Console.WriteLine($"Please choose a number between 0 and {r_MenuItemsList.Count}: ");
-            }
+                usersChoiceAsString = Console.ReadLine();
+                validChoice = int.TryParse(usersChoiceAsString, out usersChoiceAsInteger) && usersChoiceAsInteger >= 0 && usersChoiceAsInteger <= r_MenuItemsList.Count;
 
-            return choice;
+                if (validChoice == false)
+                {
+                    Console.WriteLine($"Please choose a number between 0 and {r_MenuItemsList.Count}: ");
+                }
+            }
+            while (validChoice == false);
+
+            return usersChoiceAsInteger;
         }
     }
 }

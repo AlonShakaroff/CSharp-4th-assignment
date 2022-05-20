@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Ex04.Menus.Interfaces
+﻿namespace Ex04.Menus.Interfaces
 {
     public class MainMenu
     {
-        private const string k_MainMenuTitle = "Interface main menu";
+        private const string k_MainMenuTitle = "Interface Main Menu";
         private readonly MenuHandler r_MenuHandler;
 
         public MainMenu()
